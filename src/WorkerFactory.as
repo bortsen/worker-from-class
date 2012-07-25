@@ -37,10 +37,18 @@ package
 			
 			for each (var tag:ITag in tags) 
 			{
-				if (tag is TagDoABC && TagDoABC(tag).abcName == abcName)
+				if (tag is TagDoABC)
 				{
-					classTag = tag;
-					break;
+					if (classTag == null)
+					{
+						classTag = tag;
+					}
+					
+					else if (TagDoABC(tag).abcName == abcName)
+					{
+						classTag = tag;
+						break;
+					}
 				}
 			}
 			
